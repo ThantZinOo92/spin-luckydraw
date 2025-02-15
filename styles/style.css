@@ -69,7 +69,6 @@ h1 {
     align-items: center;
     border: 2px solid #EF7D00; /* Apply border color */
     padding: 0 20px 0 20px;
-    box-sizing: border-box;
     height: 70vh; /* Increased height */
     overflow-y: auto;
     overflow-x: hidden; /* Remove horizontal scroll */
