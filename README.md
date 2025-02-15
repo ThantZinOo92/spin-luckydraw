@@ -18,8 +18,8 @@ spin-wheel-project
 ├── styles 
 │   └── style.css       # CSS styles for the spin wheel
 ├── scripts 
-│   └── app.js       # JavaScript logic for the spin wheel
-├── README.md            # Project documentation
+│   └── app.js          # JavaScript logic for the spin wheel
+├── README.md           # Project documentation
 │ 
 
 ```
