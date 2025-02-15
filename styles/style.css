@@ -44,10 +44,10 @@ h1 {
 }
 
 .result-header {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: white !important; /* Apply text color */
+    margin: 10px 0 10px 0;
+    color: white; /* Apply text color */
     text-align: center;
     width: 100%;
     background-color: #EF7D00; /* Apply background color */
@@ -57,7 +57,9 @@ h1 {
 
 .candidate-list-container {
     width: 35%;
-    height: 75vh; /* Increased height */
+    height: 70vh; /* Increased height */
+    border: 2px solid #00354E;
+    border-radius: 15px;
 }
 
 .result-block {
@@ -169,17 +171,19 @@ h1 {
 .candidate-list-header {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #00354E; /* Apply text color */
+    color: #fff; /* Apply text color */
     text-align: center;
+    background-color: #EF7D00;
+    padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 10px 10px 0 0px;
 }
 
 .candidate-list {
     height: 90%; /* Increased height */
     overflow-y: scroll;
-    border: 2px solid #00354E;
-    border-radius: 15px; /* Add border-radius for curved corners */
     color: #00354E; /* Apply text color */
+    height: 62vh;
 }
 
 .candidate-list ul {
@@ -204,11 +208,6 @@ h1 {
     color: white;
 }
 
-#result {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #00354E; /* Apply text color */
-}
 
 #selectedCandidatesList {
     list-style: none;
@@ -362,5 +361,71 @@ h1 {
 @keyframes confetti-fast {
     0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
     100% { transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg); }
+}
+
+/* Media Queries */
+
+/* Tablet devices (768px and up) */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .candidate-list-container,
+    .result-block,
+    .spin-block {
+        width: 80%;
+    }
+
+    .candidate-list-container {
+        height: 30vh;
+    }
+
+    .candidate-list {
+        height: 25vh;
+    }
+
+    .result-block {
+        height: 30vh;
+    }
+
+    .spin-block {
+        height: 20vh;
+    }
+}
+
+/* Mobile devices (480px and up) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .candidate-list-container,
+    .result-block,
+    .spin-block {
+        width: 100%;
+    }
+    
+    .candidate-list-container {
+        height: 30vh;
+    }
+
+    .candidate-list {
+        height: 20vh;
+    }
+
+    .result-block {
+        height: 30vh;
+    }
+
+    .spin-block {
+        height: 20vh;
+    }
+
+    .logo-vertical {
+        display: none; /* Hide vertical logo on mobile */
+    }
 }
 
