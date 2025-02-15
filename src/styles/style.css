@@ -1,0 +1,366 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #00354E; /* Apply text color */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #00354E; /* Apply text color */
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+.logo-vertical {
+    width: 100px;
+    height: auto;
+}
+
+.logo-horizontal {
+    width: 200px;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px;
+}
+
+.result-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white !important; /* Apply text color */
+    text-align: center;
+    width: 100%;
+    background-color: #EF7D00; /* Apply background color */
+    padding: 10px;
+    border-radius: 10px; /* Add border-radius for curved corners */
+}
+
+.candidate-list-container {
+    width: 35%;
+    height: 75vh; /* Increased height */
+}
+
+.result-block {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #EF7D00; /* Apply border color */
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    height: 70vh; /* Increased height */
+    overflow-y: auto;
+    overflow-x: hidden; /* Remove horizontal scroll */
+    border-radius: 15px; /* Add border-radius for curved corners */
+}
+
+.spin-block {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    height: 70vh; /* Increased height */
+}
+
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 0px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    color: #00354E;
+}
+
+.sidebar {
+    position: fixed;
+    top: 55px;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #ddd;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Add space between elements */
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-content input[type="text"], .sidebar-content input[type="number"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    color: #00354E; /* Apply text color */
+}
+
+.sidebar-content textarea {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    height: 50vh; /* Increased height */
+    color: #00354E; /* Apply text color */
+}
+
+.sidebar-content button, .result-block button, .centered-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    background-color: #EF7D00; /* Apply color */
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 5px; /* Add border-radius */
+    justify-content: center;
+}
+
+.sidebar-content button i, .result-block button i, .centered-button i {
+    margin-right: 10px; /* Add some space between the icon and the text */
+}
+
+.sidebar-content button:hover, .result-block button:hover, .centered-button:hover {
+    background-color: #00354E; /* Change hover color */
+}
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Add some space between the buttons */
+}
+
+.button-group button {
+    flex: 1; /* Make buttons take equal space */
+}
+
+.candidate-list-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00354E; /* Apply text color */
+    text-align: center;
+}
+
+.candidate-list {
+    height: 90%; /* Increased height */
+    overflow-y: scroll;
+    border: 2px solid #00354E;
+    border-radius: 15px; /* Add border-radius for curved corners */
+    color: #00354E; /* Apply text color */
+}
+
+.candidate-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.candidate-list li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    color: #00354E; /* Apply text color */
+}
+
+.candidate-list li.highlight {
+    background-color: #EF7D00; /* Apply color */
+    color: white;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #00354E; /* Apply text color */
+}
+
+#selectedCandidatesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #00354E; /* Apply text color */
+    border-radius: 10px; /* Add border-radius for curved corners */
+    padding: 10px;
+    height: auto; /* Limit height */
+    width: 100%;
+    overflow-y: auto; /* Add scroll if needed */
+}
+
+#selectedCandidatesList li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+#selectedCandidatesList li i {
+    margin-right: 10px; /* Add some space between the icon and the text */
+    color: #EF7D00; /* Set icon color */
+}
+
+.centered-button {
+    align-self: center;
+    padding: 20px 40px; /* Increase padding for larger button */
+    font-size: 24px; /* Increase font size */
+    border-radius: 10px; /* Increase border-radius */
+}
+
+.spin-button-disabled {
+    cursor: not-allowed;
+    background-color: #ccc; /* Change background color when disabled */
+}
+
+.spin-button-disabled:hover {
+    background-color: #ccc; /* Keep the same background color on hover when disabled */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    animation: fadeIn 0.5s; /* Add fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Reduce width to 50% */
+    height: 50%; /* Set height to 50% */
+    text-align: center;
+    border-radius: 10px; /* Add border-radius for curved corners */
+    animation: slideIn 0.5s; /* Add slide-in animation */
+    position: relative; /* For confetti animation */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-50px);}
+    to {transform: translateY(0);}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.winner-icon {
+    font-size: 50px;
+    color: #EF7D00; /* Set icon color */
+}
+
+.congratulations-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #00354E; /* Apply text color */
+}
+
+.winner-name {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #EF7D00; /* Apply text color */
+}
+
+.confetti {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+.confetti--animation-slow {
+    animation: confetti-slow 3s linear infinite;
+}
+
+.confetti--animation-medium {
+    animation: confetti-medium 2.75s linear infinite;
+}
+
+.confetti--animation-fast {
+    animation: confetti-fast 2.5s linear infinite;
+}
+
+@keyframes confetti-slow {
+    0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+    100% { transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg); }
+}
+
+@keyframes confetti-medium {
+    0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+    100% { transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg); }
+}
+
+@keyframes confetti-fast {
+    0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+    100% { transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg); }
+}
+

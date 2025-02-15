@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin Luckydraw</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Add Font Awesome for icons -->
+    <link rel="icon" href="public/images/fav-icon.png" type="image/x-icon"> <!-- Add favicon link -->
+</head>
+<body>
+    <div class="logo-container">
+        <img src="public/images/dawn-vertical-logo.png" alt="Dawn Vertical Logo" class="logo-vertical">
+        <img src="public/images/dawn-horizontal-logo.png" alt="Dawn Horizontal Logo" class="logo-horizontal">
+    </div>
+    <div class="container">
+        <div class="candidate-list-container">
+            <div class="candidate-list-header">Number of Candidates: <span id="candidateCount">0</span></div>
+            <div id="candidateList" class="candidate-list">
+                <!-- Candidates will be dynamically added here -->
+            </div>
+        </div>
+        <div class="spin-block">
+            <button id="spinButton" class="centered-button"><i class="fas fa-sync-alt"></i> Spin!</button>
+        </div>
+        <div class="result-block">
+            <div id="result" class="result-header"><i class="fa-solid fa-crown"></i> Winners: <span id="winnerCount">0</span></div>
+            <ul id="selectedCandidatesList"></ul>
+        </div>
+    </div>
+    <audio id="spinAudio" src="public/audios/spin-sound.mp3"></audio> <!-- Add audio element -->
+    <audio id="winSound" src="public/audios/winning.mp3"></audio> <!-- Add audio element for win sound -->
+     <!-- Hamburger Menu Icon -->
+     <div class="hamburger-menu" id="hamburgerMenu">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <textarea id="newCandidates" placeholder="Enter candidate names, one per line"></textarea>
+            <button id="addCandidateButton"><i class="fas fa-plus"></i> Add Candidates</button>
+            <input type="number" id="maxSpinNumbers" placeholder="Max Numbers of Spin Wheel" min="1">
+            <div class="button-group">
+                <button id="clearAllButton"><i class="fas fa-trash"></i> Clear</button>
+                <button id="restartButton"><i class="fas fa-redo-alt"></i> Restart</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Structure -->
+    <div id="winnerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="winner-icon"><i class="fa-solid fa-crown"></i></div>
+            <div class="congratulations-text">Congratulations!</div>
+            <div class="winner-name" id="winnerName"></div>
+            <!-- Confetti elements -->
+            <div class="confetti confetti--animation-slow" style="left: 5%; background-color: #EF7D00;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 7%; background-color: #EF2964;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 8%; background-color: #00C09D;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 10%; background-color: #2D87B0;"></div>
+            <div class="confetti confetti--animation-fast" style="left: 12%; background-color: #48485E;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 13%; background-color: #EFFF1D;"></div>
+            <div class="confetti confetti--animation-fast" style="left: 15%; background-color: #EF7D00;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 20%; background-color: #00354E;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 25%; background-color: #EF7D00;"></div>
+            <div class="confetti confetti--animation-fast" style="left: 30%; background-color: #00354E;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 35%; background-color: #EF7D00;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 40%; background-color: #00354E;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 42%; background-color: #EF7D00;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 44%; background-color: #EF2964;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 46%; background-color: #00C09D;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 48%; background-color: #2D87B0;"></div>
+            <div class="confetti confetti--animation-fast" style="left: 50%; background-color: #48485E;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 52%; background-color: #EFFF1D;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 54%; background-color: #48485E;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 58%; background-color: #EF2964;"></div>
+            <div class="confetti confetti--animation-fast" style="left: 60%; background-color: #00354E;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 64%; background-color: #EF2964;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 66%; background-color: #00C09D;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 68%; background-color: #2D87B0;"></div>
+            <div class="confetti confetti--animation-fast" style="left: 74%; background-color: #48485E;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 78%; background-color: #EFFF1D;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 80%; background-color: #00354E;"></div>
+            <div class="confetti confetti--animation-fast" style="left: 84%; background-color: #EF2964;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 88%; background-color: #00C09D;"></div>
+            <div class="confetti confetti--animation-medium" style="left: 90%; background-color: #2D87B0;"></div>
+            <div class="confetti confetti--animation-fast" style="left: 93%; background-color: #48485E;"></div>
+            <div class="confetti confetti--animation-slow" style="left: 95%; background-color: #EF7D00;"></div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
