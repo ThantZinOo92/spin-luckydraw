@@ -1,6 +1,6 @@
 # Spin Luckydraw Project for Thousand of Candidates
 
-This project implements a spin wheel that randomly selects a candidate from a list of 600 candidates. It is built using HTML, CSS, and JavaScript.
+This project implements a spin wheel that randomly selects a candidate from a list of candidates. It is built using HTML, CSS, and JavaScript.
 
 ## Features
 
@@ -13,13 +13,15 @@ This project implements a spin wheel that randomly selects a candidate from a li
 
 ```
 spin-wheel-project
-├── src
-│   ├── index.html       # HTML structure for the spin wheel
-│   ├── styles
-│   │   └── style.css    # CSS styles for the spin wheel
-│   └── scripts
-│       └── app.js       # JavaScript logic for the spin wheel
-└── README.md            # Project documentation
+│ 
+├── index.html          # HTML structure for the spin wheel
+├── styles 
+│   └── style.css       # CSS styles for the spin wheel
+├── scripts 
+│   └── app.js       # JavaScript logic for the spin wheel
+├── README.md            # Project documentation
+│ 
+
 ```
 
 ## Getting Started
