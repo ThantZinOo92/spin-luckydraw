@@ -185,9 +185,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Close sidebar when the user clicks anywhere outside of the sidebar
+    window.addEventListener('click', (event) => {
+        if (!sidebar.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+            sidebar.classList.remove('open');
+            hamburgerMenu.innerHTML = '<i class="fas fa-bars"></i>'; // Change back to hamburger icon
+            hamburgerMenu.style.color = '#00354E'; // Change color back
+        }
+    });
+
     // Open sidebar when hamburger menu is clicked
-    hamburgerMenu.addEventListener('click', () => {
+    hamburgerMenu.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the click event from propagating to the window
         sidebar.classList.toggle('open');
+        if (sidebar.classList.contains('open')) {
+            hamburgerMenu.innerHTML = '<i class="fa-solid fa-arrow-right-from-bracket"></i>'; // Change to 'X' icon
+            hamburgerMenu.style.color = '#EF7D00'; // Change color
+        } else {
+            hamburgerMenu.innerHTML = '<i class="fas fa-bars"></i>'; // Change back to hamburger icon
+            hamburgerMenu.style.color = '#00354E'; // Change color back
+        }
     });
 
     spinButton.addEventListener('click', spinWheel);

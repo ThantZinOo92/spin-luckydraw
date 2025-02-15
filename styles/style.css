@@ -97,6 +97,12 @@ h1 {
     color: #00354E;
 }
 
+.hamburger-menu:hover {
+    color: #EF7D00; /* Change color on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
 .sidebar {
     position: fixed;
     top: 55px;
